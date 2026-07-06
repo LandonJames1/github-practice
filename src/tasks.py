@@ -49,6 +49,14 @@ def complete_task(tasks, task_id):
     return None
 
 
+def delete_task(tasks, task_id):
+    """Remove a task by id. Returns the deleted task, or None if not found."""
+    for i, task in enumerate(tasks):
+        if task["id"] == task_id:
+            return tasks.pop(i)
+    return None
+
+
 def format_task(task):
     """Turn a task into a display line like '[x] #1  Buy milk'."""
     box = "x" if task["done"] else " "
@@ -57,7 +65,7 @@ def format_task(task):
 
 def main(argv):
     if not argv:
-        print("Usage: add <text> | list | done <id>")
+        print("Usage: add <text> | list | done <id> | delete <id>")
         return 1
 
     command = argv[0]
@@ -87,6 +95,17 @@ def main(argv):
             return 1
         save_tasks(tasks)
         print(f"Completed task #{task['id']}: {task['text']}")
+
+    elif command == "delete":
+        if len(argv) < 2:
+            print("Please provide the task id, e.g. delete 1")
+            return 1
+        task = delete_task(tasks, int(argv[1]))
+        if task is None:
+            print(f"No task with id {argv[1]}")
+            return 1
+        save_tasks(tasks)
+        print(f"Deleted task #{task['id']}: {task['text']}")
 
     else:
         print(f"Unknown command: {command}")
