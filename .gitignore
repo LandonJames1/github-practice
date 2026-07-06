@@ -1,0 +1,15 @@
+# The app writes tasks here at runtime — it's local data, not source code,
+# so we keep it out of version control.
+tasks.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Editor / OS noise
+.vscode/
+.idea/
+.DS_Store
