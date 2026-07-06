@@ -196,12 +196,29 @@ On the PR page (in the browser *or* the VS Code panel) you can:
 
 ## 4. Review and merge
 
-In a real team, **someone else** reviews your PR. Since this is your practice
-repo, you get to play both roles.
+In a real team, **someone else** reviews your PR and clicks **Approve**. Working
+solo, you'll hit a wall here:
+
+> ⚠️ **GitHub won't let you *approve your own* pull request.** The **Approve**
+> option is disabled for the PR's author — an approval is meant to come from a
+> different person. This is normal, not an error.
+
+So for solo practice, you have two choices:
+
+- **Just merge it** (the usual path). Approval isn't *required* to merge unless
+  you've set up branch-protection rules — the green merge button works without one.
+- **Practice writing review feedback** by leaving a review of type **Comment**
+  (that option *is* available to authors), then merge.
+
+  > 🧑‍🤝‍🧑 Want to practice a *real* approval? Add a friend as a collaborator, or
+  > review from a second GitHub account.
+
+Steps:
 
 - 🖱️ **In the browser (github.com):**
-  1. Open the PR and click **Files changed**.
-  2. Click **Review changes** → leave a comment → choose **Approve**.
+  1. Open the PR and click **Files changed** to review the diff.
+  2. *(Optional)* Click **Review changes** → leave a note → choose **Comment**
+     (not **Approve**, which is disabled for you) → **Submit review**.
   3. Back on the **Conversation** tab, click **Merge pull request** → **Confirm merge**.
   4. Click **Delete branch** (it did its job; tidy up).
 - 🖱️ **In VS Code:** open the PR from the GitHub Pull Requests panel. You'll see the
